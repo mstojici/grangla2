@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission
+        android:name="android.permission.CHANGE_CONFIGURATION"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.NEARBY_WIFI_DEVICES" />
+
+    <application
+        tools:replace="android:allowBackup"
+        android:allowBackup="false"
+
+        android:fullBackupContent="false"
+        android:icon="@mipmap/ikona1"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+
+        <!--meta-data android:name="com.google.android.gms.games.APP_ID"
+            android:value="@string/app_id" />
+        <meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/-->
+
+        <activity
+            android:name=".menu.SplashScreenActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+        <activity
+            android:name=".menu.MainMenuActivity"
+            android:screenOrientation="portrait"
+            android:exported="false">
+        </activity>
+
+        <activity
+            android:name=".menu.StartGameMenuActivity"
+            android:screenOrientation="portrait"
+            android:exported="false">
+        </activity>
+
+        <activity
+            android:name=".high_scores.HighScoresActivity"
+            android:screenOrientation="portrait"
+            android:exported="false">
+        </activity>
+
+        <activity
+            android:name=".menu.HelpActivity"
+            android:screenOrientation="portrait"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".menu.LegalNoticesActivity"
+            android:screenOrientation="portrait"
+            android:exported="false">
+        </activity>
+
+        <activity
+            android:name=".menu.SinglePlayerCustomGameMenuActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name"
+            android:exported="false">
+            <!--android:theme="@style/AppTheme.NoActionBar">
+
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            -->
+        </activity>
+        <activity
+            android:name=".gameplay.SinglePlayerGamePlayActivity"
+            android:screenOrientation="portrait"
+            android:allowBackup="false"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".gameplay.WiFiGamePlayActivity"
+            android:screenOrientation="portrait"
+            android:allowBackup="false"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:exported="false">
+        </activity>
+    </application>
+
+</manifest>

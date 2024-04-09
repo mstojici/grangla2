@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="high_scores_title">REKORDI</string>
+    <string name="lost">gubi</string>
+    <string name="won">pobjeđuje</string>
+    <string name="check_internet">Došlo je do problema sa spajanjem na internet.</string>
+    <string name="bluetooth">Prikaži QR za spajanje</string>
+    <string name="bluetooth_not_available">Bluetooth nije dostupan!</string>
+    <string name="bluetooth_connection_failed">Spajanje na WiFi nije uspjelo! Pokušajte ponovo.</string>
+    <string name="player_left">Suparnik je napustio igru!</string>
+    <string name="turn_wifi_on">Potrebno je uključiti WiFi za spajanje na hotspot</string>
+    <string name="connecting_wifi">Spajanje na WiFi...</string>
+    <string name="turn_wifi_off">Potrebno je isključiti WiFi da bi se pokrenuo hotspot</string>
+    <string name="bluetooth_client">Pročitaj QR i spoji se</string>
+    <string name="turn_location_on">Potrebno je uključiti lokaciju</string>
+</resources>

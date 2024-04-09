@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:enterFadeDuration="700"
+    android:exitFadeDuration="700"
+
+
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="0dp"
+    >
+    <item
+        android:drawable="@drawable/sound_on"
+        android:state_checked="true"/>
+
+
+    <item
+        android:drawable="@drawable/sound_off"
+        android:state_checked="false"/>
+</selector>

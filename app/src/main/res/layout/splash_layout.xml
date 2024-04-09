@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:cropToPadding="false"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:src="@drawable/splash">
+    </ImageView>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom|center_horizontal">
+
+        <LinearLayout
+            android:id="@+id/upperButtons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/enterButton"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:background="#00000000"
+                android:text="@string/button_enter"
+                android:textColor="#D9D9D9"
+                android:onClick="enter"
+                android:textSize="25sp"
+
+
+                android:layout_marginRight="10dp"
+
+
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:layout_gravity="center"/>
+
+
+            <Button
+                android:id="@+id/exitButton"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:background="#00000000"
+                android:text="@string/button_exit"
+                android:textColor="#D9D9D9"
+
+                android:onClick="exit"
+                android:textSize="25sp"
+
+
+                android:layout_marginLeft="0dp"
+                android:layout_toRightOf="@id/enterButton"
+
+
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:layout_gravity="center"/>
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/upperButtons">
+
+
+            <Button
+                android:id="@+id/highScoresButton"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:background="#00000000"
+                android:text="@string/high_scores_title"
+                android:textColor="#D9D9D9"
+
+                android:onClick="highScores"
+                android:textSize="25sp"
+
+
+                android:layout_marginLeft="0dp"
+
+
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:layout_gravity="center"/>
+
+            <Button
+                android:id="@+id/helpButton"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:background="#00000000"
+                android:text="@string/button_help"
+                android:textColor="#D9D9D9"
+                android:onClick="help"
+                android:textSize="25sp"
+
+                android:layout_toRightOf="@id/highScoresButton"
+
+                android:layout_margin="20dp"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,6 @@
+/build
+/release
+app-debug.apk
+app-release.apk
+build.gradle
+
