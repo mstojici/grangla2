@@ -1,5 +1,6 @@
 package com.boardgame.miljac.grangla.gameUI;
 
+import android.graphics.Color;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.Transformation;
@@ -18,7 +19,9 @@ public class WaitYourTurnTimerAnimation extends Animation {
     private int from4;
     private int  to4;
 
+
     public WaitYourTurnTimerAnimation(ProgressBar progressBar,
+                                      //TODO: use the Color class after rising the minimum API level
                                       int fromColor, int toColor) {
         super();
         this.progressBar = progressBar;

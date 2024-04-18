@@ -4,11 +4,11 @@ import android.net.wifi.WifiManager;
 
 public class WifiConnectingSingleton {
     private static WifiConnectingSingleton single_instance = null;
-    private boolean isWifi = false;
+    private static boolean isWifi = false;
     private WifiManager.LocalOnlyHotspotReservation reservation;
     private int port;
 
-    public boolean isWifi() {
+    public static boolean isWifi() {
         return isWifi;
     }
 

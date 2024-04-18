@@ -26,6 +26,7 @@ import com.boardgame.miljac.grangla.gameUI.TableView;
 import com.boardgame.miljac.grangla.gameUI.WaitYourTurnTimerAnimation;
 import com.boardgame.miljac.grangla.high_scores.HighScoresHelper;
 import com.boardgame.miljac.grangla.high_scores.Score;
+import com.boardgame.miljac.grangla.wifi.WifiConnectingSingleton;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -227,56 +228,51 @@ class UIRefresh implements Runnable {
                 public void run() {
                     endDialog.dismiss();
 
-                    if ((gamePlayActivity.levelString == null) || !gamePlayActivity.getScoresTask.isHighScore()) {
+                    if (WifiConnectingSingleton.isWifi() || !gamePlayActivity.getScoresTask.isHighScore()) {
                         gamePlayActivity.finish();
                     }
                 }
             }, 7000);
 
             Handler handlerIsHighScore = new Handler();
-            handlerIsHighScore.postDelayed(new Runnable() {
-                public void run() {
-                    if (gamePlayActivity.levelString == null) return;
-                    gamePlayActivity.getScoresTask = new HighScoresHelper.HttpGetScoresAsyncTask(gamePlayActivity.levelString, (long) (Math.signum(gamePlayActivity.result)) * gameEndTime);
-                    gamePlayActivity.getScoresTask.execute("");
-                }
+            handlerIsHighScore.postDelayed(() -> {
+                if (WifiConnectingSingleton.isWifi()) return;
+                gamePlayActivity.getScoresTask = new HighScoresHelper.HttpGetScoresAsyncTask(gamePlayActivity.levelString, (long) (Math.signum(gamePlayActivity.result)) * gameEndTime);
+                gamePlayActivity.getScoresTask.execute("");
             }, 0);
 
             Handler handlerSendHighScore = new Handler();
-            handlerSendHighScore.postDelayed(new Runnable() {
-                public void run() {
-                    if (gamePlayActivity.levelString == null) return;
-                    if (!gamePlayActivity.getScoresTask.isHighScore()) {
-                        return;
-                    }
-                    AlertDialog.Builder builder = new AlertDialog.Builder(gamePlayActivity);
-                    builder.setTitle("High Score");
-                    builder.setInverseBackgroundForced(true);
-                    builder.setMessage("Please enter your name:");
-                    final EditText input = new EditText(gamePlayActivity);
-                    input.setInputType(InputType.TYPE_TEXT_FLAG_CAP_WORDS);
-                    input.setFilters(new InputFilter[]{new InputFilter.LengthFilter(25)});
-                    builder.setView(input);
-                    builder.setCancelable(false);
-                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            String name = input.getText().toString();
-                            new HighScoresHelper.HttpPostScoreAsyncTask(new Score(gamePlayActivity.levelString, (long) (Math.signum(gamePlayActivity.result)) * gameEndTime, name)).execute("");
-                            gamePlayActivity.finish();
-                        }
-                    });
-                    builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.cancel();
-                            gamePlayActivity.finish();
-                        }
-                    });
-
-                    builder.show();
-
+            handlerSendHighScore.postDelayed(() -> {
+                if (WifiConnectingSingleton.isWifi()) return;
+                if (!gamePlayActivity.getScoresTask.isHighScore()) {
+                    return;
                 }
+                AlertDialog.Builder builder = new AlertDialog.Builder(gamePlayActivity);
+                builder.setTitle("High Score");
+                builder.setInverseBackgroundForced(true);
+                builder.setMessage("Please enter your name:");
+                final EditText input = new EditText(gamePlayActivity);
+                input.setInputType(InputType.TYPE_TEXT_FLAG_CAP_WORDS);
+                input.setFilters(new InputFilter[]{new InputFilter.LengthFilter(25)});
+                builder.setView(input);
+                builder.setCancelable(false);
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String name = input.getText().toString();
+                        new HighScoresHelper.HttpPostScoreAsyncTask(new Score(gamePlayActivity.levelString, (long) (Math.signum(gamePlayActivity.result)) * gameEndTime, name)).execute("");
+                        gamePlayActivity.finish();
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                        gamePlayActivity.finish();
+                    }
+                });
+
+                builder.show();
 
             }, 3000);
         }

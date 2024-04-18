@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.boardgame.miljac.grangla.R;
+import com.boardgame.miljac.grangla.gameplay.Level;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -114,13 +115,13 @@ public class HighScoresActivity extends AppCompatActivity {
 
                 scoreListAdapter.clear();
                 scoreListAdapter.add(new Score(getResources().getString(R.string.beginner).toUpperCase()));
-                scoreListAdapter.addAll(getScoresOfLevel(scoreList, "BEGINNER"));
+                scoreListAdapter.addAll(getScoresOfLevel(scoreList, Level.BEGINNER.name()));
                 scoreListAdapter.add(new Score(""));
                 scoreListAdapter.add(new Score(getResources().getString(R.string.intermediate).toUpperCase()));
-                scoreListAdapter.addAll(getScoresOfLevel(scoreList, "MID"));
+                scoreListAdapter.addAll(getScoresOfLevel(scoreList, Level.MID.name()));
                 scoreListAdapter.add(new Score(""));
                 scoreListAdapter.add(new Score(getResources().getString(R.string.expert).toUpperCase()));
-                scoreListAdapter.addAll(getScoresOfLevel(scoreList, "EXPERT"));
+                scoreListAdapter.addAll(getScoresOfLevel(scoreList, Level.EXPERT.name()));
                 scoreListAdapter.notifyDataSetChanged();
 
             } catch (Exception e) {

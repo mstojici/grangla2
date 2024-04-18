@@ -68,30 +68,30 @@ public class SinglePlayerCustomGameMenuActivity extends AppCompatActivity {
         spinnerPlayer2.setAdapter(adapterSpinner2);
 
         if (sharedPrefs == null) {
-            sharedPrefs = getSharedPreferences("mrm", MODE_PRIVATE);
+            sharedPrefs = getSharedPreferences(SharedPreferencesKeys.SHARED_PREFERENCES, MODE_PRIVATE);
         }
-        levelSeekBar.setProgress(sharedPrefs.getInt("mrm_LEVEL", 20));
-        player1Spinner.setSelection(sharedPrefs.getInt("mrm_PLAYER_1_IMG", 0));
+        levelSeekBar.setProgress(sharedPrefs.getInt(SharedPreferencesKeys.LEVEL, 20));
+        player1Spinner.setSelection(sharedPrefs.getInt(SharedPreferencesKeys.SELECTED_PLAYER1_IMAGE, 0));
 
         adapterSpinner2.clear();
 
-        if (!((sharedPrefs.getInt("mrm_PLAYER_1_IMG", 0) == 0))) {
+        if (!((sharedPrefs.getInt(SharedPreferencesKeys.SELECTED_PLAYER1_IMAGE, 0) == 0))) {
             adapterSpinner2.add(eyeListItem);
         }
 
-        if (!((sharedPrefs.getInt("mrm_PLAYER_1_IMG", 0) == 1))) {
+        if (!((sharedPrefs.getInt(SharedPreferencesKeys.SELECTED_PLAYER1_IMAGE, 0) == 1))) {
             adapterSpinner2.add(buttonListItem);
         }
 
-        if (!((sharedPrefs.getInt("mrm_PLAYER_1_IMG", 0) == 2))) {
+        if (!((sharedPrefs.getInt(SharedPreferencesKeys.SELECTED_PLAYER1_IMAGE, 0) == 2))) {
             adapterSpinner2.add(cloverListItem);
         }
 
-        if (!((sharedPrefs.getInt("mrm_PLAYER_1_IMG", 0) == 3))) {
+        if (!((sharedPrefs.getInt(SharedPreferencesKeys.SELECTED_PLAYER1_IMAGE, 0) == 3))) {
             adapterSpinner2.add(starListItem);
         }
 
-        spinnerPlayer2.setSelection(sharedPrefs.getInt("mrm_PLAYER_2_IMG", 0));
+        spinnerPlayer2.setSelection(sharedPrefs.getInt(SharedPreferencesKeys.SELECTED_PLAYER2_IMAGE, 0));
 
         player1Spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -163,12 +163,12 @@ public class SinglePlayerCustomGameMenuActivity extends AppCompatActivity {
         outState.putInt("PLAYER_2_IMG", spinnerPlayer2.getSelectedItemPosition());
 
         if (sharedPrefs == null) {
-            sharedPrefs = getSharedPreferences("mrm", MODE_PRIVATE);
+            sharedPrefs = getSharedPreferences(SharedPreferencesKeys.SHARED_PREFERENCES, MODE_PRIVATE);
         }
         SharedPreferences.Editor ed = sharedPrefs.edit();
         ed.putInt("mrm_LEVEL", levelSeekBar.getProgress());
-        ed.putInt("mrm_PLAYER_1_IMG", player1Spinner.getSelectedItemPosition());
-        ed.putInt("mrm_PLAYER_2_IMG", spinnerPlayer2.getSelectedItemPosition());
+        ed.putInt(SharedPreferencesKeys.SELECTED_PLAYER1_IMAGE, player1Spinner.getSelectedItemPosition());
+        ed.putInt(SharedPreferencesKeys.SELECTED_PLAYER2_IMAGE, spinnerPlayer2.getSelectedItemPosition());
         ed.commit();
         super.onSaveInstanceState(outState);
     }
@@ -178,7 +178,7 @@ public class SinglePlayerCustomGameMenuActivity extends AppCompatActivity {
         super.onResume();
 
         if (sharedPrefs == null) {
-            sharedPrefs = getSharedPreferences("mrm", MODE_PRIVATE);
+            sharedPrefs = getSharedPreferences(SharedPreferencesKeys.SHARED_PREFERENCES, MODE_PRIVATE);
         }
         levelSeekBar.setProgress(sharedPrefs.getInt("mrm_LEVEL", 20));
 
@@ -192,10 +192,10 @@ public class SinglePlayerCustomGameMenuActivity extends AppCompatActivity {
      */
     public void startCustomGame(View view) {
         if (sharedPrefs == null) {
-            sharedPrefs = getSharedPreferences("mrm", MODE_PRIVATE);
+            sharedPrefs = getSharedPreferences(SharedPreferencesKeys.SHARED_PREFERENCES, MODE_PRIVATE);
         }
         SharedPreferences.Editor ed = sharedPrefs.edit();
-        ed.putInt("mrm_LEVEL", levelSeekBar.getProgress());
+        ed.putInt(SharedPreferencesKeys.LEVEL, levelSeekBar.getProgress());
         ed.commit();
 
         Intent intent = new Intent(this, SinglePlayerGamePlayActivity.class);

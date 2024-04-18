@@ -156,7 +156,6 @@ public class MusicPlayer implements Runnable {
 
                 beatStartTime = System.currentTimeMillis();
                 beatLengthMilis = (4*beatLengthMilis + noteDuration*2.5) / 5;
-                currentMeasure = measure;
             }
 
             MidiMessageWithStartBeat currentMidiMessageWithStartBeat = null;

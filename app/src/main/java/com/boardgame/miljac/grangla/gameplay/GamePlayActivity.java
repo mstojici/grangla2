@@ -19,6 +19,7 @@ import com.boardgame.miljac.grangla.gameUI.ResultBarAnimation;
 import com.boardgame.miljac.grangla.gameUI.TableFragment;
 import com.boardgame.miljac.grangla.gameUI.TableView;
 import com.boardgame.miljac.grangla.high_scores.HighScoresHelper;
+import com.boardgame.miljac.grangla.menu.SharedPreferencesKeys;
 import com.boardgame.miljac.grangla.music.MusicPlayer;
 
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -95,10 +96,10 @@ public abstract class GamePlayActivity extends AppCompatActivity {
 
     void saveSharedPreferences(){
         if(mPrefs == null) {
-            mPrefs = getSharedPreferences("mrm", MODE_PRIVATE);
+            mPrefs = getSharedPreferences(SharedPreferencesKeys.SHARED_PREFERENCES, MODE_PRIVATE);
         }
         SharedPreferences.Editor ed = mPrefs.edit();
-        ed.putBoolean("mrm_SOUND", soundToggle.isChecked());
+        ed.putBoolean(SharedPreferencesKeys.SOUND, soundToggle.isChecked());
 
         ed.commit();
     }
@@ -213,13 +214,13 @@ public abstract class GamePlayActivity extends AppCompatActivity {
 
 
         if(mPrefs == null) {
-            mPrefs = getSharedPreferences("mrm", MODE_PRIVATE);
+            mPrefs = getSharedPreferences(SharedPreferencesKeys.SHARED_PREFERENCES, MODE_PRIVATE);
         }
 
         soundToggle = (ToggleButton) findViewById(R.id.toggle_sound_button);
 
 
-        if((mPrefs.getBoolean("mrm_SOUND", true))) {
+        if((mPrefs.getBoolean(SharedPreferencesKeys.SOUND, true))) {
             soundToggle.setChecked(true);
         } else {
             if(musicPlayer != null) {

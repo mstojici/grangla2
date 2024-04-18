@@ -14,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 import com.boardgame.miljac.grangla.R;
+import com.boardgame.miljac.grangla.gameplay.Level;
 import com.boardgame.miljac.grangla.gameplay.SinglePlayerGamePlayActivity;
 import com.boardgame.miljac.grangla.gameplay.WiFiGamePlayActivity;
 import com.boardgame.miljac.grangla.high_scores.HighScoresActivity;
@@ -64,7 +65,7 @@ public class StartGameMenuActivity extends AppCompatActivity {
     public void beginner(View view) {
         Intent intent = new Intent(this, SinglePlayerGamePlayActivity.class);
         intent.putExtra("mrm_LEVEL", 15);
-        intent.putExtra("LEVEL_STRING", "BEGINNER");
+        intent.putExtra("LEVEL_STRING", Level.BEGINNER.name());
         intent.putExtra("PLAYER1_IMG", R.drawable.pin42);
         intent.putExtra("PLAYER2_IMG", R.drawable.pin43);
         startActivity(intent);
@@ -73,7 +74,7 @@ public class StartGameMenuActivity extends AppCompatActivity {
     public void intermediate(View view) {
         Intent intent = new Intent(this, SinglePlayerGamePlayActivity.class);
         intent.putExtra("mrm_LEVEL", 55);
-        intent.putExtra("LEVEL_STRING", "MID");
+        intent.putExtra("LEVEL_STRING", Level.MID.name());
         intent.putExtra("PLAYER1_IMG", R.drawable.pin42);
         intent.putExtra("PLAYER2_IMG", R.drawable.pin40);
         startActivity(intent);
@@ -82,7 +83,7 @@ public class StartGameMenuActivity extends AppCompatActivity {
     public void expert(View view) {
         Intent intent = new Intent(this, SinglePlayerGamePlayActivity.class);
         intent.putExtra("mrm_LEVEL", 90);
-        intent.putExtra("LEVEL_STRING", "EXPERT");
+        intent.putExtra("LEVEL_STRING", Level.EXPERT.name());
         intent.putExtra("PLAYER1_IMG", R.drawable.pin42);
         intent.putExtra("PLAYER2_IMG", R.drawable.pin39);
         startActivity(intent);

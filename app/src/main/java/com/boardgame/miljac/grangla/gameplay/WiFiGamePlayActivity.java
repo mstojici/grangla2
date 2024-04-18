@@ -42,6 +42,7 @@ import android.widget.RelativeLayout;
 
 import com.blikoon.qrcodescanner.QrCodeActivity;
 import com.boardgame.miljac.grangla.R;
+import com.boardgame.miljac.grangla.menu.SharedPreferencesKeys;
 import com.boardgame.miljac.grangla.music.MusicPlayer;
 import com.boardgame.miljac.grangla.wifi.GranglaWiFiService;
 import com.boardgame.miljac.grangla.wifi.ThinMidiWiFiProxy;
@@ -481,7 +482,7 @@ public class WiFiGamePlayActivity extends GamePlayActivity {
 
 
         if (mPrefs == null) {
-            mPrefs = getSharedPreferences("mrm", MODE_PRIVATE);
+            mPrefs = getSharedPreferences(SharedPreferencesKeys.SHARED_PREFERENCES, MODE_PRIVATE);
         }
 
         if(server) {
