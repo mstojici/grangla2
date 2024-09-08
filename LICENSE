@@ -1,18 +1,22 @@
-(C) 2017-2018 Miljenko Stojičić
+(C) 2017-2023 Miljenko Stojičić
 All rights reserved
 Author: Miljenko Stojičić
 Illustrated by: Igor Ščekić
 
 
-In development of this game the following open-source examples were used:
-                                        - https://github.com/playgameservices/android-basic-samples/tree/master/ButtonClicker/ Copyright (C) 2013 Google Inc.
+In development of this game the following open-source examples licensed under the Apache License, Version 2.0 were used:
                                         - https://android.googlesource.com/platform/development/+/master/samples/TicTacToeLib/ Copyright (C) 2010 The Android Open Source Project
                                         - https://android.googlesource.com/platform/development/+/master/samples/TicTacToeMain/ Copyright (C) 2010 The Android Open Source Project
 
+The following MIDI driver also licensed under the Apache License, Version 2.0 is used:\n
+                                        - https://github.com/billthefarmer/mididriver\n
 
-Theese examples are lincenced under the Apache License, Version 2.0, which follows:
+For generating QR codes QRGenerator library licenced under the MIT license, https://opensource.org/license/mit/ is used:\n
+                                        - https://github.com/androidmads/QRGenerator\n
 
-
+For reading QR codes QRCodeScanner licensed under the GPLv3 license, https://www.gnu.org/licenses/gpl-3.0.txt, is used:\n
+                                        - https://github.com/blikoon/QRCodeScanner\n
+It is licensed under the GPLv3 license, https://www.gnu.org/licenses/gpl-3.0.txt
 
 
 Apache License
